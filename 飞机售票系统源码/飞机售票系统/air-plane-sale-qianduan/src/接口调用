@@ -1,0 +1,48 @@
+package cn.juhe.test;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class JavaGet {
+    public static void main(String[] args) throws Exception {
+        String apiKey = "f073c66b268e520c56fcdf00ff99221a";
+        String apiUrl = "https://apis.juhe.cn/flight/query";
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("key", apiKey);
+        map.put("departure", "BJS");
+        map.put("arrival", "SHA");
+        map.put("departureDate", "2025-12-29");
+        map.put("flightNo", "");
+        map.put("maxSegments", "");
+
+        URL url = new URL(String.format("%s?%s", apiUrl, params(map)));
+        BufferedReader in = new BufferedReader(new InputStreamReader((url.openConnection()).getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+        System.out.println(response);
+    }
+
+    public static String params(Map<String, String> map) {
+        return map.entrySet().stream()
+                .map(entry -> {
+                    try {
+                        return entry.getKey() + "=" + URLEncoder.encode(entry.getValue(), StandardCharsets.UTF_8.toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return entry.getKey() + "=" + entry.getValue();
+                    }
+                })
+                .collect(Collectors.joining("&"));
+    }
+}

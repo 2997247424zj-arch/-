@@ -1,0 +1,808 @@
+/* 管理员后台深色主题样式 */
+
+/* 面包屑导航 */
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* 搜索筛选区域 */
+.search-section {
+  background: rgba(2, 6, 23, 0.7);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.search-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-item label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.search-item input,
+.search-item select {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-size: 14px;
+  width: 150px;
+  background: rgba(15, 23, 42, 0.6);
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.search-item input:focus,
+.search-item select:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.search-item input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.date-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-range input {
+  width: 140px;
+}
+
+.date-separator {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+
+.search-btn,
+.reset-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s;
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.search-btn {
+  background: var(--gradient-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.reset-btn {
+  background: rgba(15, 23, 42, 0.6);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* 操作按钮 */
+.action-buttons {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary,
+.btn-danger,
+.btn-secondary {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-danger {
+  background: var(--gradient-error);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(248, 113, 113, 0.5);
+}
+
+.btn-secondary {
+  background: rgba(15, 23, 42, 0.6);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* 表格容器 */
+.table-container {
+  background: rgba(2, 6, 23, 0.7);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.data-table thead {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.data-table th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 卡片样式 */
+.glass-card {
+  background: rgba(2, 6, 23, 0.7);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* 统计卡片 */
+.stat-card {
+  background: rgba(2, 6, 23, 0.7);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.stat-icon {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.stat-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 状态标签 */
+.status-tag {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-tag.processing {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.status-tag.completed {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-tag.refunded {
+  background: rgba(248, 113, 113, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.status-tag.pending {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.status-tag.approved {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-tag.rejected {
+  background: rgba(248, 113, 113, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* 操作按钮 */
+.action-btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.detail-btn {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ffb74d;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.detail-btn:hover {
+  background: rgba(255, 152, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.edit-btn {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.edit-btn:hover {
+  background: rgba(76, 175, 80, 0.3);
+  transform: translateY(-1px);
+}
+
+.delete-btn {
+  background: rgba(244, 67, 54, 0.2);
+  color: #ef5350;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.delete-btn:hover {
+  background: rgba(244, 67, 54, 0.3);
+  transform: translateY(-1px);
+}
+
+.approve-btn {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.approve-btn:hover {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.reject-btn {
+  background: rgba(244, 67, 54, 0.2);
+  color: #ef5350;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.reject-btn:hover {
+  background: rgba(244, 67, 54, 0.3);
+}
+
+/* 分页 */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.pagination-info {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-btn {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-number {
+  padding: 6px 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.page-jump {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.page-jump input {
+  width: 50px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  background: rgba(15, 23, 42, 0.6);
+  color: #fff;
+}
+
+.page-jump span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 模态框 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: rgba(2, 6, 23, 0.95);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(18px);
+}
+
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.detail-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  width: 100px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.detail-value {
+  flex: 1;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 提醒卡片 */
+.reminder-card {
+  background: rgba(2, 6, 23, 0.7);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.reminder-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.reminder-card.urgent {
+  border-left: 4px solid #f87171;
+}
+
+.reminder-card.warning {
+  border-left: 4px solid #fbbf24;
+}
+
+.reminder-card.info {
+  border-left: 4px solid #87CEEB;
+}
+
+/* 规则卡片 */
+.rule-card {
+  background: rgba(2, 6, 23, 0.7);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.rule-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.rule-card h3 {
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+.rule-card p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 通用文本颜色 */
+.text-muted {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.text-primary {
+  color: #4AA3DF;
+}
+
+.text-success {
+  color: #4ade80;
+}
+
+.text-danger {
+  color: #f87171;
+}
+
+.text-warning {
+  color: #fbbf24;
+}
+
+/* 全局动画优化 */
+
+/* 卡片动画 */
+.glass-card,
+.stat-card,
+.reminder-card,
+.rule-card {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* 按钮点击反馈 */
+.btn-primary:active,
+.btn-danger:active,
+.btn-secondary:active,
+.search-btn:active,
+.reset-btn:active {
+  transform: scale(0.98);
+}
+
+/* 表格行动画 */
+.data-table tbody tr {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 输入框聚焦效果 */
+.search-item input:focus,
+.search-item select:focus,
+.page-jump input:focus {
+  animation: inputGlow 0.3s ease-out;
+}
+
+/* 模态框动画 */
+.modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  animation: slideInUp 0.3s ease-out;
+}
+
+/* 动画关键帧定义 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes inputGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+}
+
+/* 加载动画 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+
+/* 页面过渡动画 */
+.page-transition-enter-active,
+.page-transition-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition-enter-from {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page-transition-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+/* 按钮点击动画增强 */
+.btn-primary:active,
+.btn-danger:active,
+.btn-secondary:active,
+.search-btn:active,
+.reset-btn:active,
+.action-btn:active,
+.page-btn:active:not(:disabled) {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* 卡片点击动画 */
+.stat-card:active,
+.pending-card:active,
+.action-card:active {
+  transform: translateY(-2px) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* 添加微妙的光晕效果 */
+.btn-primary,
+.btn-danger,
+.search-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before,
+.btn-danger::before,
+.search-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before,
+.btn-danger:hover::before,
+.search-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* 表格行悬停增强动效 */
+.data-table tbody tr {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.data-table tbody tr:hover {
+  transform: translateX(5px);
+  background: rgba(99, 102, 241, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+/* 输入框聚焦动效增强 */
+.search-item input,
+.search-item select,
+.page-jump input {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-item input:focus,
+.search-item select:focus,
+.page-jump input:focus {
+  transform: translateY(-2px);
+}

@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    allow-bean-definition-overriding: true # 允许bean定义覆盖，解决重复Repository问题
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/flight?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 200526
+  jpa:
+    hibernate:
+      ddl-auto: none # 完全禁用 DDL 自动更新和验证（数据库结构由手动管理）
+    show-sql: true # 在控制台打印执行的SQL语句，方便调试
+    # repositories.base-packages 配置已移除，由 @EnableJpaRepositories 注解统一管理
+  # 邮件配置 - 网易邮箱 (此配置会被MailConfig覆盖，请在MailConfig中修改)
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: your_real_163_email@163.com  # 请替换为您的真实163邮箱
+    password: your_authorization_code  # 请替换为您的授权码
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: smtp.163.com
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 10000
+
+# MyBatis Plus配置（如果使用）
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 阿里云短信配置占位，请在部署环境中填写真实凭证
+aliyun:
+  sms:
+    accessKeyId: "your-access-key-id"
+    accessKeySecret: "your-access-key-secret"
+    region: "cn-hangzhou"
+    # 可选：短信签名与模板（如使用模板发送验证码）
+    signName: "阿里云短信测试"
+    templateCode: "SMS_154950909"

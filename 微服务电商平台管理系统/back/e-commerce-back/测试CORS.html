@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 CORS测试页面</h1>
+    <p>在浏览器中打开此文件（file:// 协议），测试后端CORS配置</p>
+
+    <div class="test-section">
+        <h2>测试1: 获取商品列表（无需登录）</h2>
+        <button onclick="testProductList()">测试商品列表</button>
+        <div id="result1" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>测试2: 用户注册</h2>
+        <button onclick="testRegister()">测试注册</button>
+        <div id="result2" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>测试3: 用户登录</h2>
+        <button onclick="testLogin()">测试登录</button>
+        <div id="result3" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>测试4: 获取用户信息（需要登录）</h2>
+        <button onclick="testUserInfo()">测试用户信息</button>
+        <div id="result4" class="result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8080/api';
+
+        function showResult(elementId, message, isSuccess = true) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = 'result ' + (isSuccess ? 'success' : 'error');
+        }
+
+        async function testProductList() {
+            try {
+                showResult('result1', '正在请求...');
+                const response = await fetch(`${API_BASE}/product/list`, {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                showResult('result1', `✅ 成功！\n状态码: ${response.status}\n商品数量: ${data.data?.length || 0}\n\n${JSON.stringify(data, null, 2)}`, true);
+            } catch (error) {
+                showResult('result1', `❌ 失败！\n${error.message}\n\n请检查：\n1. 后端是否在8080端口运行\n2. 浏览器控制台是否有CORS错误`, false);
+            }
+        }
+
+        async function testRegister() {
+            try {
+                showResult('result2', '正在请求...');
+                const timestamp = Date.now();
+                const response = await fetch(`${API_BASE}/user/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        username: `test_${timestamp}`,
+                        password: '123456',
+                        email: `test_${timestamp}@example.com`,
+                        phone: '13800138000'
+                    })
+                });
+                const data = await response.json();
+                showResult('result2', `✅ 成功！\n状态码: ${response.status}\n用户名: test_${timestamp}\n\n${JSON.stringify(data, null, 2)}`, true);
+            } catch (error) {
+                showResult('result2', `❌ 失败！\n${error.message}`, false);
+            }
+        }
+
+        async function testLogin() {
+            try {
+                showResult('result3', '正在请求...');
+                // 先注册一个用户
+                const timestamp = Date.now();
+                const username = `test_${timestamp}`;
+                
+                await fetch(`${API_BASE}/user/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        username: username,
+                        password: '123456',
+                        email: `${username}@example.com`,
+                        phone: '13800138000'
+                    })
+                });
+
+                // 然后登录
+                const response = await fetch(`${API_BASE}/user/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        username: username,
+                        password: '123456'
+                    })
+                });
+                const data = await response.json();
+                showResult('result3', `✅ 成功！\n状态码: ${response.status}\n用户名: ${username}\n\n${JSON.stringify(data, null, 2)}\n\n现在可以测试"获取用户信息"了`, true);
+            } catch (error) {
+                showResult('result3', `❌ 失败！\n${error.message}`, false);
+            }
+        }
+
+        async function testUserInfo() {
+            try {
+                showResult('result4', '正在请求...');
+                const response = await fetch(`${API_BASE}/user/info`, {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                if (response.status === 401) {
+                    showResult('result4', `⚠️ 未登录\n请先执行"测试登录"`, false);
+                } else {
+                    showResult('result4', `✅ 成功！\n状态码: ${response.status}\n\n${JSON.stringify(data, null, 2)}`, true);
+                }
+            } catch (error) {
+                showResult('result4', `❌ 失败！\n${error.message}`, false);
+            }
+        }
+
+        // 页面加载时显示提示
+        window.onload = function() {
+            console.log('CORS测试页面已加载');
+            console.log('请确保后端服务运行在 http://localhost:8080');
+        };
+    </script>
+</body>
+</html>

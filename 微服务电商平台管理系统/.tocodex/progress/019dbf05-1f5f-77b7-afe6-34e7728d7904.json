@@ -1,0 +1,67 @@
+{
+  "taskId": "019dbf05-1f5f-77b7-afe6-34e7728d7904",
+  "todos": [
+    {
+      "id": "0896d2045cbe78fdb93db6e4b5164a83",
+      "content": "梳理订单管理页报错对应的后端订单明细查询链路",
+      "status": "completed"
+    },
+    {
+      "id": "279e501f59f36d424c58a5274dbdffef",
+      "content": "核对前端订单相关 API 与后端接口定义是否一致",
+      "status": "completed"
+    },
+    {
+      "id": "d7e6fbcc388d617610aeb98a60846415",
+      "content": "核对购物车、用户、商品、管理员模块的明显接口不一致点",
+      "status": "completed"
+    },
+    {
+      "id": "d074e6018b872a2d3ec8195d4f817983",
+      "content": "输出可执行修复方案，明确需要修改的前后端文件",
+      "status": "completed"
+    },
+    {
+      "id": "3967eda2c46944188b826ff0fb840d60",
+      "content": "将计划保存到 `.tocodex/plans/` 目录",
+      "status": "completed"
+    },
+    {
+      "id": "41c395a5e694b8c93189126334b8b81b",
+      "content": "请求用户确认方案并建议切换到 `code` 模式实施",
+      "status": "completed"
+    },
+    {
+      "id": "043fd63349e8aacd516e8c19a26841bc",
+      "content": "修复运行数据库 order_item 表结构，补齐 price 列（新增修复SQL）",
+      "status": "completed"
+    },
+    {
+      "id": "ae94da710c2632b5e1679379233d678e",
+      "content": "修正前端 order.ts 的接口路径与请求体格式",
+      "status": "completed"
+    },
+    {
+      "id": "08eb636271da72913d24d701166ac884",
+      "content": "后端补充确认收货接口 /api/order/confirm-receive",
+      "status": "completed"
+    },
+    {
+      "id": "6ce8213881f62a1e1318b0f7f37cc61f",
+      "content": "修正前端 cart.ts 删除接口路径与请求格式",
+      "status": "completed"
+    },
+    {
+      "id": "7c19b1ad2692992172848c461444be90",
+      "content": "联调订单页面数据消费逻辑（OrderDetail.vue、OrderList.vue）",
+      "status": "completed"
+    },
+    {
+      "id": "6490ef9f6931cd4c4521f430512458bf",
+      "content": "修复本次联调过程中暴露的前端构建兼容问题（cart 导出兼容、图标导入、类型错误）",
+      "status": "completed"
+    }
+  ],
+  "lastUpdated": 1777032340805,
+  "status": "active"
+}

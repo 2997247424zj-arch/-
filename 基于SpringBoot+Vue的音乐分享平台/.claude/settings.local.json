@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl *)",
+      "Bash(npm *)",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "Bash(python3 *)"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "taskId": "019dbf85-8fa8-73a2-8e98-ebb703527cee",
+  "todos": [
+    {
+      "id": "bd173cc254b1afb29ee19740350b4321",
+      "content": "修复 ProductDetail.vue：stock 解析错误 + el-input-number min>max 崩溃",
+      "status": "completed"
+    },
+    {
+      "id": "487150e0fda1a4831a7a5b41c24c8476",
+      "content": "修复 ProductDetail.vue：图片字段 coverImg → imgUrl，替换 via.placeholder.com",
+      "status": "completed"
+    },
+    {
+      "id": "054b94759991e0dbe879da567fef3889",
+      "content": "修复 Cart.vue / OrderConfirm.vue / OrderDetail.vue 中 via.placeholder.com 图片引用",
+      "status": "completed"
+    },
+    {
+      "id": "2ad6fee35b8c5e0609cc1053d521c2d0",
+      "content": "修复 SearchResult.vue 中 via.placeholder.com 图片回退逻辑",
+      "status": "completed"
+    },
+    {
+      "id": "3e7cccb2cbad8efc6083815f543f5783",
+      "content": "确认 ProductList.vue / Home.vue 通过 ProductCard 统一处理，无需额外修改",
+      "status": "completed"
+    }
+  ],
+  "lastUpdated": 1777035840278,
+  "status": "active"
+}

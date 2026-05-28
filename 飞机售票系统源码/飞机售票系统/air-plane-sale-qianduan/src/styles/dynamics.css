@@ -1,0 +1,275 @@
+:root {
+  --motion-duration-fast: 180ms;
+  --motion-duration-base: 420ms;
+  --motion-duration-slow: 720ms;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --glow-primary: rgba(30, 138, 230, 0.25);
+  --glow-secondary: rgba(14, 38, 71, 0.35);
+}
+
+/* ===== 页面动态背景层 ===== */
+.route-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.page-ambient__gradient {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at 20% 20%, rgba(30, 138, 230, 0.25), transparent 55%),
+              radial-gradient(circle at 80% 0%, rgba(79, 181, 255, 0.15), transparent 40%),
+              radial-gradient(circle at 50% 80%, rgba(10, 47, 99, 0.35), transparent 55%);
+  filter: blur(60px);
+  animation: ambient-drift 16s ease-in-out infinite alternate;
+}
+
+.page-ambient__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  transform: translateZ(0);
+  opacity: 0.35;
+  animation: grid-pan 24s linear infinite;
+}
+
+.page-ambient__orb {
+  position: absolute;
+  width: clamp(160px, 22vw, 280px);
+  height: clamp(160px, 22vw, 280px);
+  border-radius: 50%;
+  background: var(--glow-primary);
+  filter: blur(60px);
+  animation: float-orb 12s var(--motion-ease) infinite;
+}
+
+.page-ambient__orb.orb-1 {
+  top: 10%;
+  left: -4%;
+}
+
+.page-ambient__orb.orb-2 {
+  bottom: 15%;
+  right: -6%;
+  animation-delay: 1.6s;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+/* ===== 自动滚动曝光动画 ===== */
+[data-animate] {
+  opacity: 0;
+  transform-origin: center;
+  transition:
+    opacity var(--motion-duration-base) var(--motion-ease-soft),
+    transform var(--motion-duration-base) var(--motion-ease-soft),
+    filter var(--motion-duration-base) var(--motion-ease-soft);
+  will-change: opacity, transform, filter;
+}
+
+[data-animate].animate-ready {
+  filter: blur(8px);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+[data-animate="fade-up"] {
+  transform: translate3d(0, 32px, 0);
+}
+
+[data-animate="fade-right"] {
+  transform: translate3d(-32px, 0, 0);
+}
+
+[data-animate="fade-left"] {
+  transform: translate3d(32px, 0, 0);
+}
+
+[data-animate="scale-in"] {
+  transform: scale(0.94);
+}
+
+[data-animate="blur-up"] {
+  filter: blur(20px);
+  transform: translate3d(0, 24px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== 卡片与面板的浮动效果 ===== */
+.stat-card,
+.panel-card,
+.dashboard-card,
+.module-card,
+.info-card,
+.analytics-card,
+.flight-card,
+.overview-card,
+.interactive-card,
+.modal-card,
+.modal-content,
+[data-elevated-card="true"] {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease),
+    box-shadow var(--motion-duration-fast) var(--motion-ease),
+    background var(--motion-duration-fast) var(--motion-ease);
+  will-change: transform;
+}
+
+.stat-card::after,
+.panel-card::after,
+.dashboard-card::after,
+.module-card::after,
+.info-card::after,
+.analytics-card::after,
+.flight-card::after,
+.overview-card::after,
+.interactive-card::after,
+.modal-card::after,
+.modal-content::after,
+[data-elevated-card="true"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 55%);
+  opacity: 0;
+  transition: opacity var(--motion-duration-base) var(--motion-ease);
+  pointer-events: none;
+}
+
+.stat-card:hover,
+.panel-card:hover,
+.dashboard-card:hover,
+.module-card:hover,
+.info-card:hover,
+.analytics-card:hover,
+.flight-card:hover,
+.overview-card:hover,
+.interactive-card:hover,
+.modal-card:hover,
+.modal-content:hover,
+[data-elevated-card="true"]:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 25px 45px rgba(2, 6, 23, 0.45);
+}
+
+.stat-card:hover::after,
+.panel-card:hover::after,
+.dashboard-card:hover::after,
+.module-card:hover::after,
+.info-card:hover::after,
+.analytics-card:hover::after,
+.flight-card:hover::after,
+.overview-card:hover::after,
+.interactive-card:hover::after,
+.modal-card:hover::after,
+.modal-content:hover::after,
+[data-elevated-card="true"]:hover::after {
+  opacity: 1;
+}
+
+/* ===== 按钮动效 ===== */
+button,
+[role='button'],
+.link-btn {
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease),
+    box-shadow var(--motion-duration-fast) var(--motion-ease),
+    background var(--motion-duration-fast) var(--motion-ease),
+    color var(--motion-duration-fast) var(--motion-ease);
+}
+
+button:hover,
+[role='button']:hover,
+.link-btn:hover {
+  transform: translateY(-2px);
+}
+
+button:active,
+[role='button']:active,
+.link-btn:active {
+  transform: translateY(1px);
+}
+
+/* ===== 智能弹窗辅助样式 ===== */
+.modal-overlay.modal-overlay--enhanced {
+  transition: background var(--motion-duration-base) ease;
+}
+
+.modal-overlay--scroll {
+  align-items: flex-start !important;
+  overflow-y: auto;
+}
+
+.modal-card--stretch,
+.modal-content--stretch {
+  --modal-clearance: 140px;
+  max-height: calc(100vh - var(--modal-clearance));
+  overflow-y: auto;
+}
+
+@supports (height: 100dvh) {
+  .modal-card--stretch,
+  .modal-content--stretch {
+    max-height: calc(100dvh - var(--modal-clearance));
+  }
+}
+
+/* ===== 关键帧 ===== */
+@keyframes ambient-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-5%, -3%, 0) scale(1.05);
+  }
+}
+
+@keyframes grid-pan {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 80px 80px, 80px 80px;
+  }
+}
+
+@keyframes float-orb {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(10px, -10px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-5px, 12px, 0) scale(0.97);
+  }
+}
+

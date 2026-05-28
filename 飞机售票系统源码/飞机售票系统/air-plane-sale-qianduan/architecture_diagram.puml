@@ -1,0 +1,170 @@
+@startuml 飞机售票系统技术架构图
+
+!define RECTANGLE class
+
+skinparam backgroundColor #FEFEFE
+skinparam componentStyle uml2
+
+' 客户端层
+package "客户端层" as ClientLayer #E3F2FD {
+    rectangle "浏览器\nChrome/Edge/Firefox" as Browser
+    rectangle "移动端浏览器\nSafari/Chrome Mobile" as Mobile
+}
+
+' 前端技术栈
+package "前端技术栈 (Vue.js生态)" as FrontendStack #C8E6C9 {
+    package "核心框架" as CoreFramework {
+        rectangle "Vue.js 3.5.22\n响应式框架" as Vue
+        rectangle "Vue Router 4.6.3\n单页应用路由" as VueRouter
+        rectangle "TypeScript 5.9.0\n类型安全" as TypeScript
+    }
+
+    package "构建工具链" as BuildTools {
+        rectangle "Vite 7.1.11\nESM构建工具" as Vite
+        rectangle "Vue DevTools\n开发调试工具" as VueDevTools
+        rectangle "npm-run-all2\n任务运行器" as NpmRunAll
+    }
+
+    package "开发环境" as DevEnv {
+        rectangle "Node.js 20.19.0+\nJavaScript运行时" as NodeJS
+        rectangle "vue-tsc\nTypeScript编译器" as VueTSC
+    }
+}
+
+' 网络通信层
+package "网络通信层" as NetworkLayer #FFF3E0 {
+    rectangle "HTTP/HTTPS\nRESTful API" as HTTP
+    rectangle "CORS跨域配置\n前后端分离" as CORS
+    rectangle "Session认证\n无Token模式" as Session
+}
+
+' 后端技术栈
+package "后端技术栈 (Spring Boot生态)" as BackendStack #FFCDD2 {
+    package "核心框架" as BackendCore {
+        rectangle "Spring Boot 3.2.4\n微服务框架" as SpringBoot
+        rectangle "JDK 17\nJava运行环境" as Java
+        rectangle "Maven 3.11.0\n依赖管理" as Maven
+    }
+
+    package "Web层" as WebLayer {
+        rectangle "Spring Web\nREST控制器" as SpringWeb
+        rectangle "Spring Validation\n参数校验" as SpringValidation
+    }
+
+    package "数据访问层" as DataLayer {
+        rectangle "Spring Data JPA\nORM映射" as SpringDataJPA
+        rectangle "Druid 1.2.18\n连接池" as Druid
+        rectangle "MySQL Connector/J\n数据库驱动" as MySQLConnector
+    }
+
+    package "工具库" as Utils {
+        rectangle "Lombok\n代码生成" as Lombok
+        rectangle "Apache POI 5.2.3\nWord文档生成" as ApachePOI
+        rectangle "PDFBox 2.0.27\nPDF生成" as PDFBox
+    }
+}
+
+' 数据存储层
+package "数据存储层" as DataStorage #FFF3E0 {
+    database "MySQL 8.0\n关系型数据库" as MySQL
+
+    package "核心数据表" as CoreTables {
+        entity "users\n用户信息" as Users
+        entity "flights\n航班信息" as Flights
+        entity "orders\n订单数据" as Orders
+        entity "tickets\n机票数据" as Tickets
+        entity "aircraft_types\n机型管理" as AircraftTypes
+        entity "seats\n座位管理" as Seats
+    }
+
+    package "业务扩展表" as BizTables {
+        entity "frequent_passengers\n常用乘客" as FrequentPassengers
+        entity "loyalty_points\n积分系统" as LoyaltyPoints
+        entity "coupons\n优惠券" as Coupons
+        entity "baggage_management\n行李管理" as Baggage
+    }
+}
+
+' 外部服务集成
+package "外部服务集成" as ExternalServices #E8F5E8 {
+    rectangle "支付宝支付\nAliPay SDK" as Alipay
+    rectangle "阿里云短信\nDYPNS API 2.0.0" as AliyunSMS
+    rectangle "邮件服务\nSMTP 163邮箱" as Email
+    rectangle "天气预报API\n第三方接口" as Weather
+    rectangle "在线客服系统\n第三方集成" as Support
+}
+
+' 部署环境
+package "部署环境" as Deployment #FFF8E1 {
+    rectangle "开发环境\n本地开发" as Dev
+    rectangle "生产环境\n服务器部署" as Prod
+
+    package "服务器配置" as ServerConfig {
+        rectangle "Nginx\n反向代理+静态资源" as Nginx
+        rectangle "Spring Boot内嵌Tomcat\n应用服务器" as Tomcat
+    }
+}
+
+' 连接关系
+Browser --> Vue : 使用
+Mobile --> Vue : 使用
+
+Vue --> VueRouter : 路由管理
+Vue --> TypeScript : 类型安全
+
+VueRouter --> HTTP : API调用
+Vite --> NodeJS : 构建依赖
+Vite --> VueTSC : 编译
+
+HTTP --> CORS : 跨域处理
+CORS --> Session : 认证
+Session --> SpringWeb : 请求处理
+
+SpringBoot --> Java : 运行环境
+SpringBoot --> Maven : 构建管理
+
+SpringWeb --> SpringValidation : 参数校验
+
+SpringDataJPA --> Druid : 连接池
+Druid --> MySQLConnector : 数据库驱动
+MySQLConnector --> MySQL : 连接
+
+SpringDataJPA --> Users : 数据访问
+SpringDataJPA --> Flights : 数据访问
+SpringDataJPA --> Orders : 数据访问
+SpringDataJPA --> Tickets : 数据访问
+SpringDataJPA --> AircraftTypes : 数据访问
+SpringDataJPA --> Seats : 数据访问
+SpringDataJPA --> FrequentPassengers : 数据访问
+SpringDataJPA --> LoyaltyPoints : 数据访问
+SpringDataJPA --> Coupons : 数据访问
+SpringDataJPA --> Baggage : 数据访问
+
+SpringWeb --> Alipay : 支付集成
+SpringWeb --> AliyunSMS : 短信服务
+SpringWeb --> Email : 邮件服务
+SpringWeb --> Weather : 天气API
+SpringWeb --> Support : 客服系统
+
+Dev --> Browser : 开发调试
+Dev --> NodeJS : 前端开发
+Dev --> Java : 后端开发
+
+Prod --> Nginx : 生产部署
+Nginx --> Tomcat : 反向代理
+Tomcat --> SpringBoot : 应用部署
+
+' 技术栈说明
+note right of Vue : Vue.js生态系统
+note right of SpringBoot : Spring Boot微服务框架
+note right of MySQL : MySQL关系型数据库
+note right of Alipay : 第三方服务集成
+
+@enduml
+
+
+
+
+
+
+

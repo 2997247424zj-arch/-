@@ -1,0 +1,100 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1E3A8A" />
+  <text x="30" y="45" font-family="Arial, sans-serif" font-size="24" fill="white" font-weight="bold">技术架构图</text>
+
+  <!-- Main White Card -->
+  <rect x="180" y="70" width="600" height="500" rx="10" fill="white" />
+
+  <!-- Layer Labels -->
+  <text x="130" y="170" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="end">前端</text>
+  <text x="130" y="370" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="end">后端</text>
+  <text x="130" y="530" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="end">数据与服务</text>
+
+  <!-- Dashed Dividers -->
+  <line x1="180" y1="230" x2="780" y2="230" stroke="#CCCCCC" stroke-dasharray="5,5" />
+  <line x1="180" y1="460" x2="780" y2="460" stroke="#CCCCCC" stroke-dasharray="5,5" />
+
+  <!-- Frontend Layer Components -->
+  <!-- Element Plus -->
+  <rect x="250" y="100" width="110" height="40" rx="20" fill="#409EFF" />
+  <text x="305" y="125" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Element Plus</text>
+  
+  <!-- Vue 3.5 -->
+  <rect x="425" y="100" width="110" height="40" rx="20" fill="#42B983" />
+  <text x="480" y="125" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Vue 3.5</text>
+  
+  <!-- Vue Router -->
+  <rect x="600" y="100" width="110" height="40" rx="20" fill="#606266" />
+  <text x="655" y="125" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Vue Router</text>
+
+  <!-- Arrow to Nginx -->
+  <path d="M480 140 L480 170" stroke="#42B983" stroke-width="6" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="490" y="160" font-family="Arial, sans-serif" font-size="12" fill="#666">Vite</text>
+  
+  <rect x="425" y="175" width="110" height="35" rx="5" fill="#009639" />
+  <text x="480" y="198" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Nginx</text>
+
+  <!-- Backend Layer Components -->
+  <!-- Spring Boot Container -->
+  <rect x="280" y="270" width="400" height="160" rx="15" fill="#FFF3E0" stroke="#FFB74D" stroke-width="1" />
+  <text x="295" y="295" font-family="Arial, sans-serif" font-size="18" fill="#E65100" font-weight="bold">Spring Boot 3.2</text>
+  
+  <!-- Tomcat -->
+  <rect x="420" y="275" width="120" height="30" rx="5" fill="#D48806" />
+  <text x="480" y="295" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Tomcat</text>
+  
+  <!-- Arrows Nginx <-> Tomcat -->
+  <path d="M470 210 L470 270" stroke="#009639" stroke-width="3" fill="none" marker-end="url(#arrowhead-green-small)"/>
+  <path d="M490 270 L490 215" stroke="#009639" stroke-width="3" fill="none" marker-end="url(#arrowhead-green-small-up)"/>
+  <text x="500" y="245" font-family="Arial, sans-serif" font-size="12" fill="#333">RESTful API</text>
+
+  <!-- Inside Spring Boot -->
+  <!-- JPA -->
+  <rect x="310" y="330" width="150" height="35" rx="5" fill="#66BB6A" />
+  <text x="385" y="353" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Spring Data JPA</text>
+  
+  <!-- Druid -->
+  <rect x="500" y="330" width="150" height="35" rx="5" fill="#26A69A" />
+  <text x="575" y="353" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Druid Pool</text>
+  
+  <!-- Aliyun -->
+  <rect x="310" y="380" width="150" height="35" rx="5" fill="#00BCD4" />
+  <text x="385" y="403" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Aliyun SMS</text>
+  
+  <!-- Alipay -->
+  <rect x="500" y="380" width="150" height="35" rx="5" fill="#1E88E5" />
+  <text x="575" y="403" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Alipay SDK</text>
+
+  <!-- Database & Services Layer -->
+  <!-- MySQL -->
+  <rect x="320" y="500" width="130" height="45" rx="10" fill="#FF9800" />
+  <text x="385" y="528" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">MySQL 8.0</text>
+  
+  <!-- External Services -->
+  <rect x="510" y="500" width="130" height="45" rx="10" fill="#F44336" />
+  <text x="575" y="528" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">外部集成服务</text>
+
+  <!-- Arrows to DB/Services -->
+  <path d="M385 430 L385 490" stroke="#66BB6A" stroke-width="3" fill="none" marker-end="url(#arrowhead-green-db)"/>
+  <path d="M575 430 L575 490" stroke="#1E88E5" stroke-width="3" fill="none" marker-end="url(#arrowhead-blue-svc)"/>
+
+  <!-- Definitions for Arrows -->
+  <defs>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#42B983" />
+    </marker>
+    <marker id="arrowhead-green-small" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#009639" />
+    </marker>
+    <marker id="arrowhead-green-small-up" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+      <polygon points="6 0, 0 2, 6 4" fill="#009639" />
+    </marker>
+    <marker id="arrowhead-green-db" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#66BB6A" />
+    </marker>
+    <marker id="arrowhead-blue-svc" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1E88E5" />
+    </marker>
+  </defs>
+</svg>

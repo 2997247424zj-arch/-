@@ -1,0 +1,206 @@
+/* 管理员界面专用增强样式：表格、表单、列表、提示与卡片的现代化风格 */
+/* 依赖 theme 变量与 ui-enhancements 的 glass-card */
+
+/* 通用容器 */
+.admin-section {
+  padding: 20px;
+  background: linear-gradient(180deg, var(--bg-primary, #FFFFFF), var(--bg-secondary, #F7FAFF));
+  border-radius: 12px;
+}
+
+/* 表格风格：干净、可读、带交互高亮 */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  font-size: 14px;
+}
+.admin-table thead th {
+  text-align: left;
+  font-weight: 700;
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
+}
+.admin-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(10,31,51,0.04);
+  color: var(--text-primary);
+}
+.admin-table tbody tr:hover {
+  background: linear-gradient(90deg, rgba(37,99,235,0.03), transparent);
+  transform: translateY(-1px);
+}
+.admin-table .cell-actions {
+  display:flex;
+  gap:8px;
+}
+
+/* 表单控件优化：更大的点击面与柔和边框 */
+.admin-form .form-row {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:12px;
+}
+.admin-form label {
+  min-width:120px;
+  color: var(--text-secondary);
+  font-weight:600;
+}
+.admin-form input, .admin-form select, .admin-form textarea {
+  flex:1;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+.admin-form input:focus, .admin-form select:focus, .admin-form textarea:focus {
+  box-shadow: 0 6px 18px rgba(37,99,235,0.08);
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* 操作按钮组 */
+.admin-actions {
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.btn-admin {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-primary);
+  background: linear-gradient(180deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  box-shadow: 0 10px 24px rgba(37,99,235,0.12);
+  transition: transform 160ms, box-shadow 160ms;
+}
+.btn-admin:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(37,99,235,0.14); }
+.btn-admin.ghost {
+  background: transparent;
+  color: var(--color-primary);
+  box-shadow: none;
+  border: 1px solid rgba(37,99,235,0.12);
+}
+
+/* 卡片与列表项 */
+.admin-card-list {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:12px;
+}
+.admin-card {
+  padding:16px;
+  border-radius:12px;
+  border:1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.86));
+  box-shadow: 0 8px 20px rgba(16,24,40,0.04);
+}
+.admin-card .card-title { font-weight:700; color:var(--text-primary); margin-bottom:8px; }
+.admin-card .card-sub { color:var(--text-secondary); font-size:13px; }
+
+/* 弹窗与模态 */
+.admin-modal .modal-card {
+  border-radius: 12px;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+  border: 1px solid var(--border-color);
+  box-shadow: 0 22px 48px rgba(16,24,40,0.12);
+}
+
+/* 小屏幕优化 */
+@media (max-width: 800px) {
+  .admin-table thead { display:none; }
+  .admin-table tbody td { display:block; width:100%; box-sizing:border-box; }
+  .admin-form label { min-width: 100px; }
+  .admin-card-list { grid-template-columns: 1fr; }
+}
+
+
+/* 头部/页脚/侧边栏 统一美化覆盖（高优先级，适配浅色主题） */
+.admin-header, .passenger-header {
+  border-bottom: 1px solid var(--border-light, rgba(10,31,51,0.06));
+  background: linear-gradient(180deg, var(--bg-primary, #F7FAFF), transparent);
+  box-shadow: 0 6px 18px rgba(16,24,40,0.03);
+}
+
+.admin-header .system-title, .passenger-header .logo {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.admin-header .header-btn,
+.passenger-header .logout-btn {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.88));
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  box-shadow: 0 6px 18px rgba(16,24,40,0.04);
+}
+
+.admin-header .personalization-btn {
+  background: transparent;
+  border-color: rgba(37,99,235,0.08);
+  color: var(--text-secondary);
+}
+
+.admin-header .personalization-btn:hover,
+.passenger-header .logout-btn:hover {
+  background: color-mix(in srgb, var(--color-primary, #2563eb) 8%, transparent);
+  color: var(--color-primary-dark);
+  border-color: color-mix(in srgb, var(--color-primary, #2563eb) 18%, transparent);
+}
+
+/* 侧边栏微调（更轻的背景与边界） */
+.admin-sidebar {
+  background: linear-gradient(180deg, rgba(250,251,255,0.95), rgba(245,248,255,0.96));
+  border-right: 1px solid var(--border-light, rgba(10,31,51,0.06));
+}
+.admin-sidebar .nav-item {
+  color: var(--text-secondary);
+}
+.admin-sidebar .nav-item.active {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color-primary, #2563eb) 10%, transparent), transparent);
+  color: var(--text-primary);
+  border: 1px solid color-mix(in srgb, var(--color-primary, #2563eb) 8%, transparent);
+}
+
+/* 页脚轻量化样式（覆盖深色） */
+.admin-footer, .passenger-footer {
+  background: linear-gradient(180deg, var(--bg-secondary, #EFF3FF), var(--bg-primary, #F7FAFF));
+  border-top: 1px solid var(--border-light, rgba(10,31,51,0.06));
+  color: var(--text-secondary);
+}
+.admin-footer .footer-title, .passenger-footer .footer-title {
+  color: var(--text-primary);
+}
+.admin-footer .footer-links a, .passenger-footer .footer-links a {
+  color: var(--text-secondary);
+}
+.admin-footer .social-link, .passenger-footer .social-link {
+  border: 1px solid rgba(10,31,51,0.04);
+  color: var(--text-secondary);
+}
+.admin-footer .social-link:hover, .passenger-footer .social-link:hover {
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary, #2563eb) 6%, transparent);
+}
+
+/* 个性化面板：更轻更一致 */
+.personalization-modal {
+  background: linear-gradient(180deg, var(--bg-primary, #FFFFFF), var(--bg-secondary, #EFF3FF));
+  border-left: 1px solid var(--border-light, rgba(10,31,51,0.06));
+  box-shadow: -12px 0 30px rgba(16,24,40,0.06);
+}
+
+/* 小调整：确保 modal-close 可见性 */
+.modal-close-btn {
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+

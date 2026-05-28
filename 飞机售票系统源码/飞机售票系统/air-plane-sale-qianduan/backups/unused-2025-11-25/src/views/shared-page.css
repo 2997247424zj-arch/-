@@ -1,0 +1,146 @@
+.page-container {
+  padding: 2.5rem clamp(1.5rem, 6vw, 4rem) 3rem;
+  color: #f8fafc;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.page-label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: rgba(248, 250, 252, 0.6);
+}
+
+.page-header h1 {
+  margin: 0.4rem 0;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.page-header p {
+  color: rgba(248, 250, 252, 0.75);
+  max-width: 520px;
+}
+
+.page-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.ghost-btn {
+  border-radius: 999px;
+  padding: 0.65rem 1.6rem;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #87CEEB, #4AA3DF);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+}
+
+.ghost-btn {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #f8fafc;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.glass-card {
+  border-radius: 28px;
+  padding: 1.8rem;
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 25px 50px rgba(2, 6, 23, 0.6),
+    inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.info-list li {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(248, 250, 252, 0.75);
+}
+
+.info-list strong {
+  color: #fff;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.section-label {
+  font-size: 0.85rem;
+  color: rgba(248, 250, 252, 0.6);
+  margin: 0;
+}
+
+.section-head h2 {
+  margin: 0.3rem 0 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.9rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.data-table th {
+  color: rgba(248, 250, 252, 0.65);
+  font-weight: 500;
+}
+
+.status-tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1.5rem;
+  }
+}
+

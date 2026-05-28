@@ -1,0 +1,211 @@
+/* ========================================
+   飞机售票系统 - 航空专业主题色系统
+   主色调：航空蓝 (#1E8AE6) + 深空蓝 (#0A2F63)
+   ======================================== */
+
+:root {
+  /* 主色调 */
+  --color-primary: #2563eb;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e40af;
+  --color-white: #FFFFFF;
+  
+  /* 背景色 */
+  --bg-primary: #F7FAFF;
+  --bg-secondary: #EFF3FF;
+  --bg-tertiary: #EAF4FF;
+  --bg-dark: #F4F7FF;
+  --app-surface: #FFFFFF;
+  
+  /* 文本色 */
+  --text-primary: #0A1F33;
+  --text-secondary: #364864;
+  --text-tertiary: #5C6C85;
+  --text-light: #8B96AD;
+  
+  /* 边框色 */
+  --border-color: rgba(10, 31, 51, 0.12);
+  --border-light: rgba(10, 31, 51, 0.08);
+  --border-dark: rgba(10, 31, 51, 0.18);
+  
+  /* 状态色 */
+  --color-success: #1FD1A1;
+  --color-warning: #F5B942;
+  --color-error: #FF6B6B;
+  --color-info: #3AC9FF;
+  
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 8px 20px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 12px 28px rgba(16, 24, 40, 0.10);
+  --shadow-xl: 0 24px 48px rgba(16, 24, 40, 0.12);
+  
+  /* 圆角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  
+  /* 过渡 */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* 字体大小 */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  
+  /* 行高 */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Z-index */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal: 1000;
+  --z-tooltip: 1100;
+  --z-notification: 1200;
+}
+
+/* 浅色主题 */
+[data-theme="light"] {
+  --bg-primary: #F7FAFF;
+  --bg-secondary: #EFF3FF;
+  --bg-tertiary: #E2EAFE;
+  --bg-dark: #F4F7FF;
+  --app-surface: #F7FAFF;
+  
+  --text-primary: #0A1F33;
+  --text-secondary: #364864;
+  --text-tertiary: #5C6C85;
+  --text-light: #8B96AD;
+  
+  --border-color: rgba(10, 31, 51, 0.15);
+  --border-light: rgba(10, 31, 51, 0.08);
+  --border-dark: rgba(10, 31, 51, 0.25);
+}
+
+/* 深色主题（默认） */
+[data-theme="dark"] {
+  --bg-primary: #030F1F;
+  --bg-secondary: #071A33;
+  --bg-tertiary: #0E2647;
+  --bg-dark: #041126;
+  --app-surface: #030F1F;
+  
+  --text-primary: #E6F0FF;
+  --text-secondary: rgba(230, 240, 255, 0.72);
+  --text-tertiary: rgba(230, 240, 255, 0.52);
+  --text-light: rgba(230, 240, 255, 0.32);
+  
+  --border-color: rgba(230, 240, 255, 0.18);
+  --border-light: rgba(230, 240, 255, 0.26);
+  --border-dark: rgba(230, 240, 255, 0.4);
+}
+
+/* 全局样式应用 */
+html {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--app-surface, var(--bg-primary));
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* 链接样式 */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* 按钮基础样式 */
+button, [role="button"] {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+/* 表单元素 */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.75rem;
+  transition: all var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* 选中文本样式 */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* 占位符文本 */
+::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* 禁用状态 */
+:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+

@@ -1,0 +1,27 @@
+{
+  "taskId": "019dbf75-6d54-7111-a59f-482ea323a4ef",
+  "todos": [
+    {
+      "id": "17fbe55163e59498f0475d4b758e9772",
+      "content": "分析 [`UserProfile.vue`](front/e-commerce-platform-front/src/views/user/UserProfile.vue:1) 现有结构与保留逻辑",
+      "status": "in_progress"
+    },
+    {
+      "id": "96468da7a85e1908465315cf1e9dbffa",
+      "content": "重写 [`template`](front/e-commerce-platform-front/src/views/user/UserProfile.vue:1) 为现代个人中心布局",
+      "status": "pending"
+    },
+    {
+      "id": "ae27665f0d19b7dc59b253410aea8305",
+      "content": "重写 [`style`](front/e-commerce-platform-front/src/views/user/UserProfile.vue:1) 以匹配新视觉规范",
+      "status": "pending"
+    },
+    {
+      "id": "9f899b1a1e49562621495bf0635bf73f",
+      "content": "校验仅修改模板和样式，保留原有 script 逻辑",
+      "status": "pending"
+    }
+  ],
+  "lastUpdated": 1777033649655,
+  "status": "active"
+}

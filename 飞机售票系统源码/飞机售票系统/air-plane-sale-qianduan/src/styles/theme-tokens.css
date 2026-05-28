@@ -1,0 +1,473 @@
+/* ============================================================================
+   飞机售票系统 - 航空专业主题色系统
+   ============================================================================
+   主色调：航空蓝 (#1E8AE6) + 深空蓝 (#0A2F63)
+   设计令牌定义，确保全局颜色一致性与行业化体验
+   ============================================================================ */
+
+:root {
+  /* ========== 主色调定义 ========== */
+  --color-primary: #2563eb;            /* 主色：现代蓝 (#2563eb) */
+  --color-primary-light: #3b82f6;      /* 次级浅蓝 (#3b82f6) */
+  --color-primary-dark: #1e40af;       /* 深色态 (#1e40af) */
+  --color-primary-lighter: #EAF4FF;    /* 极浅蓝，用作背景/禁用 */
+  --color-secondary: #12C4C0;          /* 机舱青 - 强调辅助色 */
+  --color-accent-amber: #F5B942;       /* 信号琥珀 - 告警/高亮 */
+  
+  --color-white: #FFFFFF;
+  --color-white-off: #E6F0FF;
+  --color-white-dim: #CEDAEC;
+  
+  /* ========== 文字颜色 ========== */
+  --color-text-primary: #0A1F33;                     /* 浅色主文本（在浅色主题使用） */
+  --color-text-secondary: rgba(10, 31, 51, 0.72);    /* 次级文本（浅色） */
+  --color-text-tertiary: rgba(10, 31, 51, 0.48);     /* 弱化文本（浅色） */
+  --color-text-light: rgba(10, 31, 51, 0.32);        /* 禁用文本（浅色） */
+  --color-text-inverse: #FFFFFF;                     /* 反色文本 */
+  
+  /* ========== 边框颜色 ========== */
+  --color-border-light: rgba(15, 23, 42, 0.06);
+  --color-border-medium: rgba(15, 23, 42, 0.12);
+  --color-border-dark: rgba(15, 23, 42, 0.18);
+  --color-border-primary: var(--color-primary);
+  
+  /* ========== 背景颜色 ========== */
+  --color-bg-primary: #FFFFFF;          /* 默认采用浅色背景为主 */
+  --color-bg-secondary: #F7FAFF;        /* 浅灰/浅蓝背景区块 */
+  --color-bg-tertiary: #EFF6FF;         /* 更浅的卡片背景 */
+  --color-bg-overlay: rgba(2, 6, 23, 0.06);
+  
+  /* ========== 状态颜色 ========== */
+  --color-success: #1FD1A1;
+  --color-success-dark: #0C8B68;
+  --color-success-light: #C9F5E7;
+  
+  --color-warning: #F5B942;
+  --color-warning-dark: #D38A16;
+  --color-warning-light: #FFE8BB;
+  
+  --color-error: #FF6B6B;
+  --color-error-dark: #D63F4C;
+  --color-error-light: #FFD6D9;
+  
+  --color-info: #3AC9FF;
+  --color-info-dark: #1484C7;
+  --color-info-light: #D6F0FF;
+  
+  /* ========== 补充颜色（用于特殊场景） ========== */
+  --color-cyan: #0CD4D4;
+  --color-cyan-dark: #0894A1;
+  --color-cyan-light: #BDF6F3;
+  
+  /* ========== 渐变定义 ========== */
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  --gradient-primary-light: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  --gradient-success: linear-gradient(135deg, #1FD1A1 0%, #0C8B68 100%);
+  --gradient-warning: linear-gradient(135deg, #F5B942 0%, #D38A16 100%);
+  --gradient-error: linear-gradient(135deg, #FF6B6B 0%, #D63F4C 100%);
+  
+  /* ========== 阴影定义 ========== */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 8px 20px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 12px 28px rgba(16, 24, 40, 0.10);
+  --shadow-xl: 0 24px 48px rgba(16, 24, 40, 0.12);
+  --shadow-2xl: 0 40px 80px rgba(16, 24, 40, 0.14);
+  --shadow-primary: 0 10px 30px rgba(37, 99, 235, 0.12);
+  
+  /* ========== 圆角定义 ========== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 999px;
+  
+  /* ========== 间距定义 ========== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  
+  /* ========== 过渡定义 ========== */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* ========== 字体定义 ========== */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+}
+
+/* ========== 浅色主题 ========== */
+[data-theme="light"] {
+  --bg-primary: #F7FAFF;
+  --bg-secondary: #EFF3FF;
+  --bg-tertiary: #E2EAFE;
+  --text-primary: #0A1F33;
+  --text-secondary: #364864;
+  --text-tertiary: #5C6C85;
+  --border-color: rgba(10, 31, 51, 0.15);
+}
+
+/* ========== 深色主题（默认） ========== */
+[data-theme="dark"] {
+  --bg-primary: #030F1F;
+  --bg-secondary: #071A33;
+  --bg-tertiary: #0E2647;
+  --text-primary: #E6F0FF;
+  --text-secondary: rgba(230, 240, 255, 0.72);
+  --text-tertiary: rgba(230, 240, 255, 0.52);
+  --border-color: rgba(230, 240, 255, 0.16);
+}
+
+/* ========== 全局应用 ========== */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+* {
+  transition: background-color var(--transition-base), 
+              color var(--transition-base), 
+              border-color var(--transition-base);
+}
+
+/* ========== 按钮样式 ========== */
+button {
+  font-family: var(--font-family-base);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========== 表单元素 ========== */
+input, textarea, select {
+  font-family: var(--font-family-base);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  padding: var(--spacing-md) var(--spacing-lg);
+  transition: all var(--transition-base);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
+}
+
+/* ========== 卡片样式 ========== */
+.card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+/* ========== 链接样式 ========== */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ========== 可访问性对比度检查 ========== */
+/* 航空蓝 (#1E8AE6) 与深空蓝背景 (#030F1F) 对比度：5.2:1（符合AA） */
+/* 夜航白文本与驾驶舱背景对比度：10.4:1（符合AAA） */
+
+/* ========== 按钮状态样式 ========== */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 次按钮 */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-primary-lighter);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-secondary:active:not(:disabled) {
+  background: var(--color-primary-light);
+  color: var(--color-text-inverse);
+}
+
+.btn-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.3);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 危险按钮 */
+.btn-danger {
+  background: var(--color-error);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--color-error-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.btn-danger:active:not(:disabled) {
+  background: var(--color-error-dark);
+  transform: translateY(0);
+}
+
+.btn-danger:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========== 表单元素状态样式 ========== */
+.form-input {
+  border: 1px solid var(--color-border-light);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-family-base);
+  transition: all var(--transition-base);
+}
+
+.form-input:hover:not(:disabled) {
+  border-color: var(--color-border-medium);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
+}
+
+.form-input:disabled {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-light);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-input.error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-input.success {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* ========== 链接状态样式 ========== */
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.link:active {
+  color: var(--color-primary-dark);
+}
+
+.link:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.link:visited {
+  color: var(--color-primary-dark);
+}
+
+/* ========== 卡片状态样式 ========== */
+.card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card:active {
+  border-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-xl);
+}
+
+.card:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
+}
+
+/* ========== 导航项状态样式 ========== */
+.nav-item {
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border-radius: var(--radius-lg);
+}
+
+.nav-item:hover {
+  color: var(--color-primary);
+  background: var(--color-bg-tertiary);
+}
+
+.nav-item.active {
+  color: var(--color-primary);
+  background: var(--color-primary-lighter);
+  border-bottom: 2px solid var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-item:disabled {
+  color: var(--color-text-light);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.nav-item:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ========== 状态指示器 ========== */
+.status-success {
+  color: var(--color-success);
+  background: var(--color-success-light);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.status-warning {
+  color: var(--color-warning);
+  background: var(--color-warning-light);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.status-error {
+  color: var(--color-error);
+  background: var(--color-error-light);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.status-info {
+  color: var(--color-info);
+  background: var(--color-info-light);
+  border: 1px solid var(--color-info);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+

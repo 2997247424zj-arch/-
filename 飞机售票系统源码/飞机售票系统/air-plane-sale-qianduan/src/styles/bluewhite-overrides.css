@@ -1,0 +1,219 @@
+/* =============================================================
+   蓝白主题全局覆盖（确保文字清晰不被覆盖）
+   - 作用范围：全站组件通用样式 + 管理端常用类名覆盖
+   - 仅在浅色主题下生效（data-theme=light 或默认）
+   ============================================================= */
+
+/* 基础排版与可读性优化 */
+:root, :root[data-theme="light"], [data-theme="light"] {
+  --surface-bg: var(--bg-primary);
+  --surface-secondary: var(--bg-secondary);
+  --surface-tertiary: var(--bg-tertiary);
+  --surface-border: var(--border-color);
+  --surface-text: var(--text-primary);
+  --muted-text: var(--text-secondary);
+}
+
+:root[data-theme="light"] body,
+[data-theme="light"] body {
+  color: var(--text-primary);
+  background: var(--app-surface, var(--bg-primary));
+}
+
+:root[data-theme="light"] body :where(h1, h2, h3, h4, h5, h6,
+  p, span, li, dt, dd, label, small, strong, em, blockquote,
+  th, td, div, section, article, header, footer, aside) {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="light"] body :where(.muted, .text-muted, .page-label, .breadcrumb, .secondary-info, .helper-text, .subtle-text) {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="light"] .page-container,
+:root[data-theme="light"] .admin-main,
+:root[data-theme="light"] .content,
+:root[data-theme="light"] .route-wrapper {
+  color: var(--text-primary) !important;
+  background: var(--surface-bg) !important;
+}
+
+:root[data-theme="light"] :where(.primary-btn, .btn-primary, .cta-btn, .action-btn--solid, .chip-solid, .status-tag.solid, .badge-solid, .pill-solid) {
+  color: #fff !important;
+}
+
+:root[data-theme="light"] :where(.ghost-btn, .btn-secondary, .outline-btn, .page-btn, .filter-pill, .chip-outline) {
+  color: var(--text-primary) !important;
+  border-color: var(--surface-border) !important;
+  background: var(--surface-bg) !important;
+}
+
+/* 标题与正文颜色统一，确保对比度 */
+h1, h2, h3, h4, h5, h6 { color: var(--text-primary); }
+p, li, dt, dd, label, small, span { color: var(--text-primary); }
+.muted, .text-muted { color: var(--text-secondary) !important; }
+
+/* 通用卡片与面板（白底+蓝边界+阴影） */
+.surface,
+.panel,
+.card,
+.glass-card,
+.stat-card,
+.rule-card,
+.reminder-card,
+.search-section,
+.table-container,
+.modal-content,
+.pending-card,
+.chart-card {
+  background: var(--surface-bg) !important;
+  color: var(--surface-text) !important;
+  border: 1px solid var(--surface-border) !important;
+  box-shadow: var(--shadow-md) !important;
+  backdrop-filter: none !important;
+}
+
+/* 标题容器内标题颜色 */
+.glass-card h2,
+.rule-card h3,
+.modal-header h3,
+.section-title,
+.pending-header h3,
+.chart-header h3 { color: var(--text-primary) !important; }
+
+/* 输入类统一（白底+蓝焦点） */
+.search-item input,
+.search-item select,
+.page-jump input,
+input, textarea, select,
+.period-select {
+  background: var(--surface-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+.search-item input:focus,
+.search-item select:focus,
+.page-jump input:focus,
+input:focus, textarea:focus, select:focus,
+.period-select:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.12) !important;
+}
+
+/* 二级按钮（次要）统一为边框蓝、底白，确保文字可读 */
+.btn-secondary,
+.reset-btn,
+.page-btn {
+  background: var(--surface-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+.btn-secondary:hover,
+.reset-btn:hover,
+.page-btn:hover:not(:disabled) {
+  background: var(--surface-tertiary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* 主要按钮与危险按钮保持品牌色（蓝/红）+ 白字 */
+.btn-primary,
+.search-btn {
+  background: var(--gradient-primary) !important;
+  color: var(--color-white) !important;
+}
+
+.btn-danger {
+  background: var(--gradient-error) !important;
+  color: var(--color-white) !important;
+}
+
+/* 数据表格（表头蓝白对比、正文深灰） */
+.data-table thead {
+  background: var(--gradient-primary) !important;
+}
+.data-table th {
+  color: var(--color-white) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25) !important;
+}
+.data-table td {
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--surface-border) !important;
+}
+.data-table tbody tr:hover {
+  background: var(--surface-tertiary) !important;
+}
+
+/* 面包屑与分页文本颜色 */
+.breadcrumb, .breadcrumb-separator,
+.pagination-info, .page-number,
+.page-jump span { color: var(--text-secondary) !important; }
+
+/* 状态标签使用主题语义色，保持可读性 */
+.status-tag.processing {
+  color: var(--color-warning-dark) !important;
+  background: var(--color-warning-light) !important;
+  border: 1px solid var(--color-warning) !important;
+}
+.status-tag.completed,
+.status-tag.approved {
+  color: var(--color-success) !important;
+  background: var(--color-success-light) !important;
+  border: 1px solid var(--color-success) !important;
+}
+.status-tag.refunded,
+.status-tag.rejected {
+  color: var(--color-error) !important;
+  background: var(--color-error-light) !important;
+  border: 1px solid var(--color-error) !important;
+}
+
+/* 模态框覆盖与关闭按钮颜色 */
+.modal-overlay { background: rgba(0, 0, 0, 0.55) !important; }
+.close-btn { color: var(--text-secondary) !important; }
+.close-btn:hover { background: var(--surface-tertiary) !important; color: var(--text-primary) !important; }
+
+/* 避免组件自带白字在白底上不可见 */
+.stat-content, .pending-card p, .stat-label, .bar-value,
+.pending-count, .period-select option { color: var(--text-primary) !important; }
+
+/* 统计值不要再用白色渐变文本，改为深灰文本保证对比度 */
+.stat-value {
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  color: var(--text-primary) !important;
+}
+
+/* 图表条形值文字颜色与选择器下拉项文字颜色 */
+.chart-bar .bar-value { color: var(--text-primary) !important; }
+.period-select option {
+  background: var(--surface-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+/* 导航/徽标等带背景文字避免被覆盖（叠加守护） */
+.has-overlay { position: relative; }
+.has-overlay > .overlay { position: absolute; inset: 0; z-index: 0; }
+.has-overlay > .content, .overlay-content { position: relative; z-index: 1; }
+
+/* 图片/渐变上的文字默认加轻微阴影提升可读性 */
+.text-on-image { color: var(--color-white) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+
+/* 卡片标题、列表标题加粗，避免与背景融为一体 */
+.card h2, .card h3, .panel h2, .panel h3, .glass-card h2 { font-weight: 700; }
+
+/* 避免极浅文字（保证对比度） */
+.light-text, .text-light { color: var(--text-secondary) !important; }
+
+/* 统一分割线颜色 */
+.hr, hr, .divider { border-color: var(--surface-border) !important; opacity: 1; }
+
+/* 统一徽章/标签蓝白主题 */
+.badge, .tag { background: var(--surface-tertiary); color: var(--text-primary); border: 1px solid var(--surface-border); }
+
+/* 表单提示/错误信息颜色统一 */
+.form-error, .error-message, .field-error { color: var(--color-error) !important; }
+
+/* 防止文本被背景图形遮挡：给常见容器设定层级 */
+.header, header, nav, .navbar, .landing-nav, .modal-header { position: relative; z-index: 2; }
+.main, main, .content, .admin-main, .page { position: relative; z-index: 1; }
+.footer, footer { position: relative; z-index: 2; }

@@ -1,0 +1,37 @@
+{
+  "taskId": "019dc2db-ca21-74bf-8d90-ae1499acf9ee",
+  "todos": [
+    {
+      "id": "aa240acd5b7cea54659b54eab8409bc0",
+      "content": "选择任务：修复订单管理页问题",
+      "status": "completed"
+    },
+    {
+      "id": "64ca883aa33543bf0dc003050ec63f43",
+      "content": "检查数据库 schema.sql 中 order_item 表的 price 字段",
+      "status": "in_progress"
+    },
+    {
+      "id": "23119a599178585d5d04b08a1dbcfaaa",
+      "content": "检查前端 order.ts API 接口",
+      "status": "pending"
+    },
+    {
+      "id": "7fc3f23e2bb9791d1ed2bb5e14fa12e8",
+      "content": "检查后端 OrderController 接口",
+      "status": "pending"
+    },
+    {
+      "id": "c677618c1179aa41a9ad99d2f21b805b",
+      "content": "修复数据库字段问题（如需要）",
+      "status": "pending"
+    },
+    {
+      "id": "19fbf1c483b6da57e37676cb0ae64212",
+      "content": "统一前端 API 到后端接口",
+      "status": "pending"
+    }
+  ],
+  "lastUpdated": 1777090777202,
+  "status": "active"
+}

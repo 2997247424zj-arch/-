@@ -1,0 +1,96 @@
+:root {
+  --color-background: #f4efe7;
+  --color-surface: rgba(255, 251, 245, 0.88);
+  --color-surface-strong: rgba(255, 244, 229, 0.96);
+  --color-panel: rgba(255, 255, 255, 0.72);
+  --color-text: #23314f;
+  --color-heading: #16203a;
+  --color-muted: #61708f;
+  --color-border: rgba(35, 49, 79, 0.1);
+  --color-border-strong: rgba(35, 49, 79, 0.18);
+  --color-primary: #2dd4bf;
+  --color-secondary: #6366f1;
+  --color-accent: #f472b6;
+  --shadow-soft: 0 28px 72px rgba(22, 32, 58, 0.08);
+  --shadow-card: 0 32px 90px rgba(22, 32, 58, 0.12);
+  --radius-xl: 36px;
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-page: 320ms;
+  --content-width: min(1760px, calc(100vw - 24px));
+  --font-display: 'Segoe UI Variable Display', 'Trebuchet MS', 'Noto Sans SC', sans-serif;
+  --font-body: 'Segoe UI Variable Text', 'Microsoft YaHei UI', 'Noto Sans SC', sans-serif;
+}
+
+:root[data-theme='dark'] {
+  --color-background: #0f1124;
+  --color-surface: rgba(19, 24, 51, 0.84);
+  --color-surface-strong: rgba(39, 47, 89, 0.9);
+  --color-panel: rgba(248, 250, 252, 0.08);
+  --color-text: #edf2ff;
+  --color-heading: #fcfdff;
+  --color-muted: #aab4d6;
+  --color-border: rgba(237, 242, 255, 0.12);
+  --color-border-strong: rgba(237, 242, 255, 0.22);
+  --color-primary: #5eead4;
+  --color-secondary: #818cf8;
+  --color-accent: #f9a8d4;
+  --shadow-soft: 0 26px 70px rgba(3, 6, 22, 0.36);
+  --shadow-card: 0 32px 90px rgba(8, 12, 34, 0.44);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(99, 102, 241, 0.12), transparent 32%),
+    radial-gradient(circle at 50% 20%, rgba(244, 114, 182, 0.1), transparent 24%),
+    linear-gradient(180deg, #fbf7f2 0%, #f4efe7 58%, #ece5db 100%);
+  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  transition:
+    background-color 240ms ease,
+    color 240ms ease;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme='dark'] body {
+  background:
+    radial-gradient(circle at top left, rgba(94, 234, 212, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(129, 140, 248, 0.18), transparent 32%),
+    radial-gradient(circle at 50% 20%, rgba(249, 168, 212, 0.1), transparent 24%),
+    linear-gradient(180deg, #11142d 0%, #0f1124 58%, #0a0d1d 100%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(94, 234, 212, 0.26);
+}
